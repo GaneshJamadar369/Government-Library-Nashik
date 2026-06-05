@@ -124,7 +124,7 @@ export default function Footer() {
                 {/* Header info */}
                 <div className="relative z-10 pr-8">
                   <span className="text-xs font-bold tracking-widest text-[#2F5233] uppercase block">
-                    CSE · BATCH OF '27
+                    IIT Madras · GCOE Chandrapur
                   </span>
                   <h3 className="text-2xl md:text-3xl font-semibold text-[#2B1B17] mt-2 font-serif">
                     Ganesh Jamadar
@@ -136,50 +136,36 @@ export default function Footer() {
 
                 {/* Info Grid */}
                 <div className="relative z-10 grid grid-cols-1 gap-4 mt-6">
-                  {/* Branch & Batch */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* Branch */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#F4EFE6] flex items-center justify-center text-[#2F5233] shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M6 18.8v-4L2 13"/><path d="M21.42 10.922V17a2 2 0 0 1-2 2h-2.582a2 2 0 0 1-1.879-1.318l-1.025-3.076"/></svg>
-                      </div>
-                      <div>
-                        <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">BRANCH</span>
-                        <span className="text-xs font-semibold text-[#2B1B17]">CSE</span>
-                      </div>
+                  {/* Education */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#F4EFE6] flex items-center justify-center text-[#2F5233] shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                     </div>
-
-                    {/* Batch */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#F4EFE6] flex items-center justify-center text-[#2F5233] shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg>
-                      </div>
-                      <div>
-                        <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">BATCH</span>
-                        <span className="text-xs font-semibold text-[#2B1B17]">Class of '27</span>
-                      </div>
+                    <div>
+                      <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">EDUCATION</span>
+                      <span className="text-xs font-semibold text-[#2B1B17]">BS in Data Science, IIT Madras</span>
                     </div>
                   </div>
 
-                  {/* Role */}
+                  {/* College */}
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#F4EFE6] flex items-center justify-center text-[#2F5233] shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                     </div>
                     <div>
-                      <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">ROLE</span>
-                      <span className="text-xs font-semibold text-[#2B1B17]">Frontend · Backend · Animations</span>
+                      <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">COLLEGE</span>
+                      <span className="text-xs font-semibold text-[#2B1B17]">Government College of Engineering, Chandrapur</span>
                     </div>
                   </div>
 
-                  {/* Built */}
+                  {/* Research */}
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#F4EFE6] flex items-center justify-center text-[#2F5233] shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                     </div>
                     <div>
-                      <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">BUILT</span>
-                      <span className="text-xs font-semibold text-[#2B1B17]">Frontend, backend, and the pixels too.</span>
+                      <span className="text-[9px] font-bold tracking-wider text-[#8D7E73] uppercase block">RESEARCH INTERN</span>
+                      <span className="text-xs font-semibold text-[#2B1B17]">IIT Bombay & IIT Roorkee</span>
                     </div>
                   </div>
                 </div>
