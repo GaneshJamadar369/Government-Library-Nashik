@@ -254,6 +254,7 @@ export default function Footer() {
             <div className="space-y-2">
               {[
                 { label: "About", href: "/about" },
+                { label: "Events", href: "/events" },
                 { label: "Gallery", href: "/gallery" },
                 { label: "Success Stories", href: "/success-stories" },
                 { label: "Contact", href: "/contact" },

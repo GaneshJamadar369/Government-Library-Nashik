@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react"
 const navLinks = [
   { href: "/", label: "Home", labelMr: "मुखपृष्ठ" },
   { href: "/about", label: "About", labelMr: "आमच्याबद्दल" },
+  { href: "/events", label: "Events", labelMr: "कार्यक्रम" },
   { href: "/gallery", label: "Gallery", labelMr: "गॅलरी" },
   { href: "/success-stories", label: "Success Stories", labelMr: "यशोगाथा" },
   { href: "/contact", label: "Contact", labelMr: "संपर्क" },
