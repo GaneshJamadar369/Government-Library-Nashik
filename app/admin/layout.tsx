@@ -3,12 +3,13 @@
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { LayoutDashboard, Images, Users, FileText, LogOut, BookOpen } from "lucide-react"
+import { LayoutDashboard, Images, Users, FileText, LogOut, BookOpen, CalendarDays } from "lucide-react"
 
 const NAV = [
   { href: "/admin", label: "डॅशबोर्ड", sub: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/gallery", label: "गॅलरी", sub: "Gallery", icon: Images },
   { href: "/admin/stories", label: "यशोगाथा", sub: "Stories", icon: Users },
+  { href: "/admin/events", label: "कार्यक्रम", sub: "Events", icon: CalendarDays },
   { href: "/admin/content", label: "मजकूर", sub: "Content", icon: FileText },
 ]
 

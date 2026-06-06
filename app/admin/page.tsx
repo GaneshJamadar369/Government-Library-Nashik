@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Images, Users, FileText, ArrowRight } from "lucide-react"
+import { Images, Users, FileText, ArrowRight, CalendarDays } from "lucide-react"
 
 const CARDS = [
   {
@@ -22,6 +22,15 @@ const CARDS = [
     desc: "विद्यार्थ्यांच्या यशोगाथा व्यवस्थापित करा",
     descEn: "Manage student success stories",
     color: "from-emerald-400 to-teal-600",
+  },
+  {
+    href: "/admin/events",
+    icon: CalendarDays,
+    label: "कार्यक्रम",
+    sub: "Events History",
+    desc: "कार्यक्रम जोडा, हटवा, बदला",
+    descEn: "Add, delete, edit events",
+    color: "from-amber-400 to-orange-500",
   },
   {
     href: "/admin/content",
