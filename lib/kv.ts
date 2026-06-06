@@ -7,6 +7,7 @@ export interface GalleryImage {
   titleEn: string
   category: string
   description: string
+  eventDate?: string
 }
 
 export interface Story {
@@ -19,6 +20,18 @@ export interface Story {
   quote: string
   quoteEn: string
   category: string
+  photoUrl?: string
+}
+
+export interface LibraryEvent {
+  id: number
+  titleMarathi: string
+  titleEnglish: string
+  date: string
+  dateISO: string
+  description: string
+  category: string
+  imagePath: string
 }
 
 export interface SiteContent {
@@ -32,6 +45,22 @@ export interface SiteContent {
     timingEn: string
     phone: string
     email: string
+  }
+  branding: {
+    siteName: string
+    siteNameEn: string
+    tagline: string
+    logoUrl: string
+  }
+  storyStats: {
+    successStudents: string
+    govOfficers: string
+    doctors: string
+    years: string
+  }
+  footer: {
+    orgName: string
+    location: string
   }
 }
 
@@ -60,6 +89,9 @@ const DEFAULT_CONTENT: SiteContent = {
   about: { heading: "ज्ञानाचे एक आश्रयस्थान", body: "ज्ञानसंपदा सार्वजनिक वाचनालय नाशिकच्या हृदयात स्थित एक शांत आश्रयस्थान आहे, जिथे ज्ञान आणि निसर्ग एकत्र येतात." },
   stats: { books: "5000+", members: "10,000+", years: "25+", newspapers: "50+" },
   contact: { address: "ज्ञानसंपदा वाचनालय, नाशिक, महाराष्ट्र", addressEn: "Dnyansampada Library, Nashik, Maharashtra", timing: "सकाळी ९:०० ते सायं. ८:००", timingEn: "9:00 AM – 8:00 PM", phone: "+91 XXX XXX XXXX", email: "info@dnyansampada.in" },
+  branding: { siteName: "ज्ञानसंपदा", siteNameEn: "Dnyansampada", tagline: "Public Library, Nashik", logoUrl: "" },
+  storyStats: { successStudents: "500+", govOfficers: "50+", doctors: "30+", years: "25+" },
+  footer: { orgName: "नाशिक महानगरपालिका अंतर्गत", location: "नाशिक, महाराष्ट्र" },
 }
 
 // ── KV helpers ──────────────────────────────────────────────────────────────
@@ -93,7 +125,15 @@ export async function saveStories(stories: Story[]): Promise<void> {
 export async function getSiteContent(): Promise<SiteContent> {
   try {
     const data = await kv.get<SiteContent>("content:site")
-    return data ?? DEFAULT_CONTENT
+    if (!data) return DEFAULT_CONTENT
+    // Merge with defaults to handle old data without new fields
+    return {
+      ...DEFAULT_CONTENT,
+      ...data,
+      branding: { ...DEFAULT_CONTENT.branding, ...(data.branding ?? {}) },
+      storyStats: { ...DEFAULT_CONTENT.storyStats, ...(data.storyStats ?? {}) },
+      footer: { ...DEFAULT_CONTENT.footer, ...(data.footer ?? {}) },
+    }
   } catch {
     return DEFAULT_CONTENT
   }

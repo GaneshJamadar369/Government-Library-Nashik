@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { BookOpen, Calendar } from "lucide-react"
 import Navbar from "@/components/navbar"
@@ -17,6 +17,15 @@ export default function EventsPage() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] })
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+
+  // Fetch live events from KV, fall back to static data
+  const [events, setEvents] = useState(EVENTS)
+  useEffect(() => {
+    fetch("/api/admin/events")
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (data && Array.isArray(data) && data.length > 0) setEvents(data) })
+      .catch(() => {})
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
@@ -88,7 +97,7 @@ export default function EventsPage() {
           >
             <div className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-keshari" />
-              <span>{EVENTS.length} कार्यक्रम / Events</span>
+              <span>{events.length} कार्यक्रम / Events</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-gold inline-block" />
@@ -124,7 +133,7 @@ export default function EventsPage() {
 
       {/* Timeline */}
       <section className="py-12">
-        <EventsTimeline />
+        <EventsTimeline events={events} />
       </section>
 
       <Footer />

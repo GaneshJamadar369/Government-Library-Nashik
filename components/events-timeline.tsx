@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
-import { EVENTS, EVENT_YEARS } from "@/data/events"
+import type { LibraryEvent } from "@/data/events"
 import { EventCard } from "@/components/event-card"
 
 function YearMarker({ year }: { year: string }) {
@@ -56,7 +56,7 @@ function TimelineDot({ isInView }: { isInView: boolean }) {
   )
 }
 
-function EventRow({ event, index }: { event: (typeof EVENTS)[0]; index: number }) {
+function EventRow({ event, index }: { event: LibraryEvent; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-60px" })
   const isLeft = index % 2 === 0
@@ -89,7 +89,7 @@ function EventRow({ event, index }: { event: (typeof EVENTS)[0]; index: number }
   )
 }
 
-export function EventsTimeline() {
+export function EventsTimeline({ events }: { events: LibraryEvent[] }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -97,9 +97,10 @@ export function EventsTimeline() {
   })
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
-  const grouped = EVENT_YEARS.map((year) => ({
+  const years = [...new Set(events.map(e => e.dateISO.slice(0, 4)))].sort()
+  const grouped = years.map((year) => ({
     year,
-    events: EVENTS.filter((e) => e.dateISO.startsWith(year)),
+    events: events.filter((e) => e.dateISO.startsWith(year)),
   }))
 
   let globalIndex = 0
