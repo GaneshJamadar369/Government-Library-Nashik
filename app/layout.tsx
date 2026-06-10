@@ -64,6 +64,9 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
     languages: { 'mr-IN': SITE_URL, 'en-IN': SITE_URL },
   },
+  verification: {
+    google: 'gQ8ZTypYLiHhk2ZeKw-6XImt_6UT6-_ikVHpEtzVhuE',
+  },
 }
 
 export const viewport: Viewport = {
