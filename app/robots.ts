@@ -5,6 +5,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/admin", "/api/admin"] },
     ],
-    sitemap: "https://dyansampada-library.vercel.app/sitemap.xml",
+    sitemap: "https://dnyansampada-vachanalay.vercel.app/sitemap.xml",
   }
 }

@@ -11,8 +11,8 @@ const contactInfo = [
     icon: MapPin,
     title: "पत्ता",
     titleEn: "Address",
-    value: "ज्ञानसंपदा वाचनालय, नाशिक, महाराष्ट्र",
-    valueEn: "Dnyansampada Library, Nashik, Maharashtra"
+    value: "ज्ञानसंपदा सार्वजनिक वाचनालय, मुरारी नगर, नाशिक - ४२२०१०",
+    valueEn: "Dnyansampada Sarvajanik Vachanalay, Murari Nagar, Nashik - 422010"
   },
   {
     icon: Clock,
@@ -25,8 +25,8 @@ const contactInfo = [
     icon: Phone,
     title: "दूरध्वनी",
     titleEn: "Phone",
-    value: "+91 XXX XXX XXXX",
-    valueEn: "Contact Number"
+    value: "075593 99889",
+    valueEn: "075593 99889"
   },
   {
     icon: Mail,
@@ -299,23 +299,27 @@ export default function ContactPage() {
                 आम्हाला <span className="text-gradient-keshari">भेट द्या</span>
               </h2>
 
-              {/* Map Placeholder */}
+              {/* Live Map */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-muted mb-6">
-                <div className="absolute inset-0 bg-gradient-to-br from-sea-light to-sea-mid flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 mx-auto text-white/50 mb-3" />
-                    <p className="text-white/70 text-sm">Interactive Map</p>
-                    <p className="text-white/50 text-xs">Nashik, Maharashtra</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-white animate-pulse" />
-                  <div className="absolute top-1/3 right-1/3 w-3 h-3 rounded-full bg-keshari animate-pulse delay-500" />
-                  <div className="absolute bottom-1/4 left-1/2 w-2 h-2 rounded-full bg-gold animate-pulse delay-1000" />
-                </div>
+                <iframe
+                  title="Dnyansampada Sarvajanik Vachanalay Location"
+                  src="https://www.google.com/maps?q=Dnyansampada+Sarvajanik+Vachnalay,+Murari+Nagar,+Nashik&output=embed"
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
+
+              <a
+                href="https://www.google.com/maps/place/Dnyansampada+Sarvajanik+Vachnalay/@19.9721671,73.7455146,21z/data=!4m6!3m5!1s0x3bddeca04601cf65:0xfb74435397ab899e!8m2!3d19.9721671!4d73.745583!16s%2Fg%2F11c6qsnbyg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full mb-6 px-6 py-3 rounded-xl bg-gradient-to-r from-keshari to-gold text-white font-medium hover:shadow-lg hover:shadow-keshari/30 transition-all"
+              >
+                <MapPin className="w-4 h-4" />
+                <span>दिशा मिळवा / Get Directions</span>
+              </a>
 
               {/* Quick Info */}
               <div className="grid grid-cols-2 gap-4">

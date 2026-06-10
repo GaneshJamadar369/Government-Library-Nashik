@@ -282,7 +282,9 @@ export default function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>वाचनालय वेळ: सकाळी ९ ते सायं. ८</p>
               <p>Timing: 9 AM - 8 PM</p>
-              <p className="text-keshari">Nashik, Maharashtra</p>
+              <p className="text-keshari">मुरारी नगर, नाशिक - ४२२०१०</p>
+              <p className="text-keshari">Murari Nagar, Nashik - 422010</p>
+              <p>📞 075593 99889</p>
             </div>
           </motion.div>
         </div>
