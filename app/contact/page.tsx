@@ -6,6 +6,40 @@ import { MapPin, Clock, Phone, Mail, Send, CheckCircle } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
+const faqs = [
+  {
+    q: "वाचनालयाची वेळ काय आहे?",
+    qEn: "What are the library timings?",
+    a: "वाचनालय सकाळी ९ ते रात्री ८ वाजेपर्यंत खुले असते. रविवार आणि सार्वजनिक सुट्ट्यांना बंद.",
+    aEn: "The library is open from 9 AM to 8 PM. Closed on Sundays and public holidays."
+  },
+  {
+    q: "सदस्यत्व कसे घ्यावे?",
+    qEn: "How to get membership?",
+    a: "वाचनालयात येऊन फॉर्म भरा. ओळखपत्र आणि फोटो आवश्यक. सदस्यत्व विनामूल्य आहे.",
+    aEn: "Visit the library and fill the form. ID proof and photo required. Membership is free."
+  },
+  {
+    q: "पुस्तके किती दिवस ठेवता येतात?",
+    qEn: "How long can I keep books?",
+    a: "पुस्तके १५ दिवसांसाठी घरी नेता येतात. पुन्हा नूतनीकरण करता येते.",
+    aEn: "Books can be borrowed for 15 days. Renewal is possible."
+  },
+]
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: `${faq.q} / ${faq.qEn}`,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: `${faq.a} ${faq.aEn}`,
+    },
+  })),
+}
+
 const contactInfo = [
   {
     icon: MapPin,
@@ -78,6 +112,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Navbar />
       
       {/* Hero Section */}
@@ -359,26 +394,7 @@ export default function ContactPage() {
           </motion.div>
 
           <div className="space-y-4">
-            {[
-              {
-                q: "वाचनालयाची वेळ काय आहे?",
-                qEn: "What are the library timings?",
-                a: "वाचनालय सकाळी ९ ते रात्री ८ वाजेपर्यंत खुले असते. रविवार आणि सार्वजनिक सुट्ट्यांना बंद.",
-                aEn: "The library is open from 9 AM to 8 PM. Closed on Sundays and public holidays."
-              },
-              {
-                q: "सदस्यत्व कसे घ्यावे?",
-                qEn: "How to get membership?",
-                a: "वाचनालयात येऊन फॉर्म भरा. ओळखपत्र आणि फोटो आवश्यक. सदस्यत्व विनामूल्य आहे.",
-                aEn: "Visit the library and fill the form. ID proof and photo required. Membership is free."
-              },
-              {
-                q: "पुस्तके किती दिवस ठेवता येतात?",
-                qEn: "How long can I keep books?",
-                a: "पुस्तके १५ दिवसांसाठी घरी नेता येतात. पुन्हा नूतनीकरण करता येते.",
-                aEn: "Books can be borrowed for 15 days. Renewal is possible."
-              },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 className="bg-card rounded-xl p-6 border border-border"
